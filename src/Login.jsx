@@ -2,12 +2,14 @@ import { GoogleAuthProvider , signInWithPopup } from "firebase/auth";
 import { FacebookAuthProvider } from "firebase/auth";
 import { auth } from "./firebase/FirebaseConfig";
 import { TwitterAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
 
 // react-icons
 import { MdFacebook } from "react-icons/md";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 import { MdPhone } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 // react-icons
 
 const Login = () => {
@@ -15,6 +17,8 @@ const Login = () => {
   const GoogleProvider = new GoogleAuthProvider()
   const FaceBookProvider = new FacebookAuthProvider()
   const TwitterProvider = new TwitterAuthProvider();
+  const GithubProvider = new GithubAuthProvider();
+  const Navigate = useNavigate()
 
   let handleGoogle = () => {
     signInWithPopup(auth , GoogleProvider)
@@ -48,10 +52,17 @@ const Login = () => {
 
   let handleGithub = () => {
 
+      signInWithPopup(auth , GithubProvider)
+    .then((response) => {
+      console.log(response);
+    } )
+    .catch((err) => {
+      alert(err.message)
+    })
   }
 
   let handlePhone = () => {
-
+    Navigate("/phone")
   }
 
   ``
