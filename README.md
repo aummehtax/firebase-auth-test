@@ -1,3 +1,5 @@
+>  This is just a learning purpose project.
+
 -  Google Authentication (Sign in with Google)  
 -  Facebook Authentication (Sign in with Facebook)  
 -  Twitter Authentication (Sign in with Twitter / X)  
